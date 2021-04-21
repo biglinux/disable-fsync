@@ -1,0 +1,19 @@
+#! /bin/bash
+#
+# nosync - crazy preload to disable sync() function call
+# for days when we just don't want to sync() (similar to
+# nohup, just more sync than HUP).
+#
+# These libc functions are trapped in dynamically linked 
+# executables and stripped of their sync features:
+#
+#  sync
+#  fdatasync
+#  fsync
+#     
+# Usage: nosync command-to-run-parameters
+#
+
+LD_PRELOAD=/usr/lib/disable-fsync.so exec "$@"
+echo 1>&2 "$0: cannot exec $@"
+exit 1
