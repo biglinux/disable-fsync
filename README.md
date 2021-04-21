@@ -12,7 +12,7 @@ To test on your system just use these 3 commands as root in the terminal:
 
 wget https://raw.githubusercontent.com/biglinux/disable-fsync/main/disable-fsync/usr/lib/disable-fsync.so -O /usr/lib/disable-fsync.so
 
-echo "/usr/lib/disable-fsync.so" > /etc/ld.so.preload
+echo "/usr/lib/disable-fsync.so" >> /etc/ld.so.preload
 
 sudo ldconfig
 
@@ -32,6 +32,6 @@ Para testar no seu sistema basta utilizar esses 3 comandos como root no terminal
 
 wget https://raw.githubusercontent.com/biglinux/disable-fsync/main/disable-fsync/usr/lib/disable-fsync.so -O /usr/lib/disable-fsync.so
 
-echo "/usr/lib/disable-fsync.so" > /etc/ld.so.preload
+echo "/usr/lib/disable-fsync.so" >> /etc/ld.so.preload
 
 sudo ldconfig
