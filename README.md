@@ -10,11 +10,13 @@ I have had several performance gains using this method, mainly in browsers, but 
 
 To test on your system just use these 3 commands as root in the terminal:
 
+sudo su
+
 wget https://raw.githubusercontent.com/biglinux/disable-fsync/main/disable-fsync/usr/lib/disable-fsync.so -O /usr/lib/disable-fsync.so
 
 echo "/usr/lib/disable-fsync.so" >> /etc/ld.so.preload
 
-sudo ldconfig
+ldconfig
 
 
 # Português
@@ -29,9 +31,10 @@ Tive vários ganhos de desempenho utilizando esse método, principalmente nos na
 
 Para testar no seu sistema basta utilizar esses 3 comandos como root no terminal:
 
+sudo su
 
 wget https://raw.githubusercontent.com/biglinux/disable-fsync/main/disable-fsync/usr/lib/disable-fsync.so -O /usr/lib/disable-fsync.so
 
 echo "/usr/lib/disable-fsync.so" >> /etc/ld.so.preload
 
-sudo ldconfig
+ldconfig
