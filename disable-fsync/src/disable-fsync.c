@@ -37,6 +37,3 @@ int fdatasync(int fd)
     return 0;
 }
 
-
-
-
