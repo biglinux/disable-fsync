@@ -1,0 +1,22 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=disable-fsync
+pkgver=$(date +%y.%m.%d)
+pkgrel=$(date +%H%M)
+arch=('any')
+license=('GPL')
+makedepends=('clang')
+url="https://github.com/biglinux/disable-fsync"
+pkgdesc="Automatic enable dbus-broker"
+source=("git+https://github.com/biglinux/disable-fsync.git")
+md5sums=(SKIP)
+install=disable-fsync.install
+
+package() {
+    cd "${srcdir}/disable-fsync/disable-fsync/src/"
+    make
+    mkdir -p "${pkgdir}/usr/lib"
+    mkdir -p "${pkgdir}/usr/lib32"
+    cp disable-fsync.so "${pkgdir}/usr/lib/disable-fsync.so"
+    cp disable-fsync32.so "${pkgdir}/usr/lib32/disable-fsync.so"
+} 
