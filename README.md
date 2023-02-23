@@ -47,7 +47,7 @@ Here the focus is only on the BTRFS filesystem, which has higher levels of check
 The way I managed to achieve a good level of performance with minimal loss of data integrity was to use LD_PRELOAD to disable fsync and fdatasync at the application level and not the file system level.
 
 For more performance I also use these settings in BTRFS, in the /etc/fstab file:
-noatime,usebackuproot,space_cache=v2,discard=async,autodefrag,compress-force=zstd:2,commit=10
+noatime,space_cache=v2,discard=async,autodefrag,compress-force=zstd:2,commit=10
 
 The commit=10 option helps improve data integrity by reducing the time the file system waits to save files that are cached in RAM from 30 seconds to 10 seconds, making it very unlikely that more than the files will be lost. last 10 seconds of files saved in case of power failure.
 
@@ -104,7 +104,7 @@ Aqui o foco é apenas no sistema de arquivos BTRFS, que possui níveis de checag
 A forma que consegui atingir um bom nível de desempenho com o mínimo de perda na integridade dos dados foi utilizar o LD_PRELOAD para desativar o fsync e o fdatasync no nível do aplicativo e não do sistema de arquivos.
 
 Para ter mais desempenho também utilizo essas configurações no BTRFS, no arquivo /etc/fstab:
-noatime,usebackuproot,space_cache=v2,discard=async,autodefrag,compress-force=zstd:2,commit=10
+noatime,space_cache=v2,discard=async,autodefrag,compress-force=zstd:2,commit=10
 
 A opção commit=10 ajuda a melhorar a integridade dos dados, reduzindo de 30 segundos para 10 segundos o tempo que o sistema de arquivos aguarda até salvar os arquivos que estão em cache na memória RAM, tornando bastante improvável que sejam perdidos mais do que os últimos 10 segundos de arquivos salvos no caso de falta de energia.
 
