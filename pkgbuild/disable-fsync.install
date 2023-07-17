@@ -1,12 +1,12 @@
 post_install() {
-    sed 's|^disable-fsync.so|/usr/lib/disable-fsync.so|g' /etc/ld.so.preload
+    sed 's|^disable-fsync.so|/usr/$LIB/disable-fsync.so|g' /etc/ld.so.preload
 }
 
 post_upgrade() {
-    sed -i 's|^disable-fsync.so|/usr/lib/disable-fsync.so|g' /etc/ld.so.preload
+    sed -i 's|^disable-fsync.so|/usr/$LIB/disable-fsync.so|g' /etc/ld.so.preload
 }
 
 pre_remove() {
-    sed -i 's|/usr/lib/disable-fsync.so||g' /etc/ld.so.preload
+    sed -i 's|/usr/$LIB/disable-fsync.so||g' /etc/ld.so.preload
     sed -i 's|disable-fsync.so||g' /etc/ld.so.preload
 } 
