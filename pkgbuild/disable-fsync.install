@@ -3,18 +3,18 @@ post_install() {
     # check file exist
     if [ -f "$preload_file" ]; then
         # exist
-        sed -i 's|^disable-fsync.so|/usr/lib/disable-fsync.so|g' "$preload_file"
+        sed -i 's|^disable-fsync.so|/usr/$LIB/disable-fsync.so|g' "$preload_file"
     else
         # no exist
-        echo "/usr/lib/disable-fsync.so" > "$preload_file"
+        echo "/usr/$LIB/disable-fsync.so" > "$preload_file"
     fi
 }
 
 post_upgrade() {
-    sed -i 's|^disable-fsync.so|/usr/lib/disable-fsync.so|g' /etc/ld.so.preload
+    sed -i 's|^disable-fsync.so|/usr/$LIB/disable-fsync.so|g' /etc/ld.so.preload
 }
 
 pre_remove() {
-    sed -i 's|/usr/lib/disable-fsync.so||g' /etc/ld.so.preload
+    sed -i 's|/usr/$LIB/disable-fsync.so||g' /etc/ld.so.preload
     sed -i 's|disable-fsync.so||g' /etc/ld.so.preload
 } 
